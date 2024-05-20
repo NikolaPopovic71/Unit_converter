@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit conversion</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body onload=todayDate()>
+    <header>
+      <h1>Welcome</h1>
+      <h2>
+        to the converter for the most used units  
+      </h2>
+      <p>
+        Using the converter is very easy:
+        <ol>
+          <li>enter the number to convert in the
+            input field, the number could be up to 9 decimals (e.g. 34.123456789)</li>
+          <li>choose number of decimals of your final result</li>
+          <li>click one of the conversion button, and the result appears immediately</li>
+          <li>click the "Reset" button to clear the input field</li>
+        </ol>  
+      </p>
+    </header>
+    
+    <section class="input-fields">
+      <div class="input-area">
+        <input
+          type="number"
+          id="inputValue"
+          placeholder="Enter value to convert"
+          required
+          step="0.0001"
+        />
+        <label for="decimals">Choose a result's decimals:</label>
+        <select
+          id="decimalPlaces"
+          name="decimals"
+          aria-label="Select decimal places"
+        >
+          <option value="0">0 decimals</option>
+          <option value="1">1 decimal</option>
+          <option value="2">2 decimals</option>
+          <option value="3">3 decimals</option>
+          <option value="4">4 decimals</option>
+          <option value="5">5 decimals</option>
+          <option value="6">6 decimals</option>
+          <option value="7">7 decimals</option>
+          <option value="8">8 decimals</option>
+          <option value="9">9 decimals</option>
+        </select>
+  
+        <button id="resetButton">Reset</button>
+        <p id="conversionResult"></p>
+      </div>
+    </section>
+    
+    <section id="most-frequented" class="most-frequented">
+      <div class="buttons" class="buttons">
+        <button class="frequent-conversion">°C to °F</button>
+        <button class="frequent-conversion">°F to °C</button>
+        <button class="frequent-conversion">m to ft</button>
+        <button class="frequent-conversion">ft to m</button>
+        <button class="frequent-conversion">km to mi</button>
+        <button class="frequent-conversion">mi to km</button>
+        <button class="frequent-conversion">jutro to ar</button>
+        <button class="frequent-conversion">ar to jutro</button>
+        <button class="frequent-conversion">lanac to ar</button>
+        <button class="frequent-conversion">ar to lanac</button>
+        <button class="frequent-conversion">dulum to ar</button>
+        <button class="frequent-conversion">ar to dulum</button>
+        <button class="frequent-conversion">g to oz</button>
+        <button class="frequent-conversion">oz to g</button>
+        <button class="frequent-conversion">g to lb</button>
+        <button class="frequent-conversion">lb to g</button>
+        <button class="frequent-conversion">L to bbl</button>
+        <button class="frequent-conversion">bbl to L</button>
+        <button class="frequent-conversion">atm to bar</button>
+        <button class="frequent-conversion">bar to atm</button>
+        <button class="frequent-conversion">m/s to km/h</button>
+        <button class="frequent-conversion">km/h to m/s</button>
+        <button class="frequent-conversion">km/h to mi/h</button>
+        <button class="frequent-conversion">mi/h to km/h</button>
+      </div>
+    </section>
+    
+    <section class="dropdown-menu">
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Unit label names</button>
+        <div id="myDropdown" class="dropdown-content">
+          <span class="material-icons">search</span>
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          <p><b>°C</b> is symbol for <b>Celsius</b></p>
+          <p><b>°F</b> is symbol for <b>Fahrenheit</b></p>
+          <p><b>m</b> is symbol for <b>meter</b></p>
+          <p><b>ft</b> is symbol for <b>foot</b></p>
+          <p><b>km</b> is symbol for <b>kilometer</b></p>
+          <p><b>mi</b> is symbol for <b>mile</b></p>
+          <p><b>g</b> is symbol for <b>gram</b></p>
+          <p><b>oz</b> is symbol for <b>ounce</b></p>
+          <p><b>lb</b> is symbol for <b>pound</b></p>
+          <p><b>L</b> is symbol for <b>liter</b></p>
+          <p><b>bbl</b> is symbol for <b>barrel (oil)</b></p>
+          <p><b>atm</b> is symbol for <b>atmosphere</b></p>
+          <p><b>b</b> is symbol for <b>bar</b></p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3>Notes</h3>
+      <ul>
+        <li>Jutro, lanac and dulum are specific Serbian area units</li>
+        <li>Here for dulum is used formula 1 dulum = 10 ar, but in some parts of Serbia (the surroundings of Leskovac) 1 dulum = 16 ar</li>
+        <li>1 ar = 100 m<sup>2</sup> (area 10 m x 10 m)</li>
+        <li>More detailed units convertor you can find here <a href="https://www.unitconverters.net/">Detailed units converter</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <p class="copy-text">&copy; <b id="date"></b>PONITECH</p>
+        <p class="email-text">E-mail: <a href="mailto:nikolap.itech@gmail.com" class="email-link">nikolap.itech@gmail.com</a></p>
+        <div class="social-wrapper">
+          <ul class="social-links">
+            <li>
+              <a href="https://github.com/NikolaPopovic71" target="_blank" rel="noopener noreferrer" title="GitHub">
+                <img src="images/github_line.svg" alt="GitHub">
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/NikolaP_itech" target="_blank" rel="noopener noreferrer" title="X">
+                <img src="images/social_x_line.svg" alt="X">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    
+    
+
+    <script src="script.js"></script>
+  </body>
+</html>
